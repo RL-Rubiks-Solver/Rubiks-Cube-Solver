@@ -1,72 +1,86 @@
-# Rubik's Cube Solver
+# Rubik's Cube Reinforcement Learning Solver
 
-Welcome to the Rubik's Cube Solver project! This project implements a Q-Learning agent to solve a 3x3x3 Rubik's Cube using reinforcement learning techniques.
+Welcome to the **Rubik's Cube RL Solver Project**! This project implements and compares multiple model-free reinforcement learning algorithms — including **Q-Learning**, **REINFORCE**, and **Proximal Policy Optimization (PPO)** — to train agents capable of solving a **2x2x2 Rubik's Cube** environment.
 
-## Project Overview
+---
 
-The Rubik's Cube Solver project is designed to explore reinforcement learning by training an agent to solve a Rubik's Cube. The project includes:
+## 🚀 Project Overview
 
-- A Rubik's Cube environment that simulates the cube and its possible moves.
-- A feature extractor to represent the cube's state.
-- A Q-Learning agent that learns to solve the cube through trial and error.
-- A training loop to iteratively improve the agent's performance.
+This project is a hands-on experiment in applying classic and modern reinforcement learning techniques to a simplified cube-solving task. It includes:
 
-## Features
+- ✅ A custom-built 2x2x2 Rubik's Cube simulator
+- ✅ Feature-based state representation
+- ✅ Three RL agents: Q-Learning, REINFORCE (Policy Gradient), and PPO
+- ✅ Evaluation tools for comparing agent performance
+- ✅ Visualization of learning curves and success rates
+- ✅ One-click `run_all.py` orchestration script
 
-- **Rubik's Cube Environment**: Simulates a 3x3x3 Rubik's Cube with standard moves.
-- **Q-Learning Agent**: Uses reinforcement learning to learn optimal moves.
-- **Feature Extraction**: Converts cube states into feature vectors for learning.
-- **Training and Evaluation**: Includes scripts to train the agent and evaluate its performance.
+---
 
-## Getting Started
+## 📦 Features
 
-### Prerequisites
+- 🧩 **2x2x2 Cube Simulation**: Lightweight, fast environment with scramble and step methods
+- 🧠 **Q-Learning Agent**: Tabular, epsilon-greedy agent with feature-based state representation
+- 🎯 **Policy Gradient (REINFORCE)**: Neural network policy optimized via Monte Carlo gradients
+- 🔄 **PPO Agent**: Clipped policy optimization with actor-critic architecture for stability
+- 📈 **Evaluation & Visualization**: Success rate, steps, and reward trends over episodes
+- ✅ **Robustness**: Includes numerical stability fixes for reward normalization and logits
 
-- Python 3.x
-- Required Python packages: `numpy`, `matplotlib`, `rubik-cube`
+---
 
-### Installation
+## 🛠️ Getting Started
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/RL-Rubiks-Solver/Rubiks-Cube-Solver.git
-   cd rubiks-cube-solver
-   ```
+### ✅ Prerequisites
 
-2. Install the required packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
+- Python 3.8+
+- Install dependencies:
 
-### Usage
+```bash
+pip install numpy matplotlib torch
+```
 
-1. **Train the Agent**:
-   Run the training script to train the Q-Learning agent:
-   ```bash
-   python cube_solver.py
-   ```
+---
 
-2. **Evaluate the Agent**:
-   Evaluate the trained agent's performance:
-   ```bash
-   python evaluate_model.py
-   ```
+## 📁 Project Structure
 
-### Project Structure
+```bash
+rubiks-cube-project/
+├── cube_solver.py              # 2x2x2 environment + Q-learning agent
+├── policy_gradient_rubik.py   # REINFORCE agent with PyTorch
+├── ppo_rubik_solver.py        # PPO agent with clipped optimization
+├── evaluate_model.py          # Evaluation for Q-learning
+├── compare_rl_agents.py       # Side-by-side comparison of all agents
+├── rl_analysis_report.py      # Summary metrics + plots
+├── run_all.py                 # Orchestrated runner for full pipeline
+├── README.md                  # This file
+```
 
-- `cube_solver.py`: Contains the Rubik's Cube environment, feature extractor, and Q-Learning agent.
-- `evaluate_model.py`: Script to evaluate the trained agent and visualize results.
-- `README.md`: Project documentation.
+---
 
-### Contributing
+## 🧪 How to Use
 
-Contributions are welcome! Please fork the repository and submit a pull request for any improvements or bug fixes.
+### 🔁 Run Everything
+```bash
+python run_all.py
+```
 
-### License
+This will:
+1. Train all three agents
+2. Evaluate each one
+3. Plot comparison graphs
+4. Show full reward and step analysis
 
-This project is licensed under the MIT License.
+### 🧠 Individual Training
+```bash
+python cube_solver.py            # Q-Learning
+python policy_gradient_rubik.py  # REINFORCE
+python ppo_rubik_solver.py       # PPO
+```
 
-### Acknowledgments
+### 📊 Evaluation & Analysis
+```bash
+python evaluate_model.py         # Q-learning performance
+python compare_rl_agents.py      # Compare Q vs PG vs PPO
+python rl_analysis_report.py     # Show reward and steps per agent
+```
 
-- Inspired by the classic Rubik's Cube puzzle.
-- Utilizes the `rubik-cube` library for cube simulation.
